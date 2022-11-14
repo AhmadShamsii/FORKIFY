@@ -40,7 +40,6 @@ const controlRecipes = async function () {
 const controlSearchResults = async function () {
   try {
     resultsView.renderSpinner();
-    // console.log(resultsView);
 
     // 1) get search query
     const query = searchView.getQuery();
@@ -139,5 +138,3 @@ const init = function () {
   newFeature();
 };
 init();
-
-console.log('ahushamsi');

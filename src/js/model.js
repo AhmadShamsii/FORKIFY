@@ -44,7 +44,6 @@ export const loadSearchResults = async function (query) {
   try {
     state.search.query = query;
     const data = await AJAX(`${API_URL}?search=${query}`);
-    // console.log(data);
     state.search.results = data.data.recipes.map(function (res) {
       return {
         id: res.id,
@@ -54,7 +53,6 @@ export const loadSearchResults = async function (query) {
       };
     });
     state.search.page = 1;
-    // console.log(state.search.results);
   } catch (err) {
     throw err;
   }
@@ -145,5 +143,3 @@ export const uploadRecipe = async function (newRecipe) {
     throw err;
   }
 };
-
-console.log('jgll');
