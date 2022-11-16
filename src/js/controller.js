@@ -7,11 +7,12 @@ import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 import { MODAL_CLOSE_SEC } from './config.js';
 
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
-if (module.hot) {
-  module.hot.accept();
-}
+// import 'core-js/stable';
+// import 'regenerator-runtime/runtime';
+
+// if (module.hot) {
+//   module.hot.accept();
+// }
 
 // https://forkify-api.herokuapp.com/v2
 
