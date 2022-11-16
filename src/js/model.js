@@ -29,7 +29,7 @@ const createRecipeObject = function (data) {
 
 export const loadRecipe = async function (id) {
   try {
-    const data = await AJAX(`${API_URL}${id}`);
+    const data = await AJAX(`${API_URL}${id}?key=${KEY}`);
     state.recipe = createRecipeObject(data);
 
     if (state.bookmark.some(bookmark => bookmark.id === id))
@@ -43,7 +43,7 @@ export const loadRecipe = async function (id) {
 export const loadSearchResults = async function (query) {
   try {
     state.search.query = query;
-    const data = await AJAX(`${API_URL}?search=${query}`);
+    const data = await AJAX(`${API_URL}?search=${query}&key=${KEY}`);
     state.search.results = data.data.recipes.map(function (res) {
       return {
         id: res.id,
@@ -133,13 +133,12 @@ export const uploadRecipe = async function (newRecipe) {
       ingredients,
     };
 
-    const data = await AJAX(
-      `https://forkify-api.herokuapp.com/api/get?rId=${KEY}`,
-      recipe
-    );
+    const data = await AJAX(`${API_URL}?key=${KEY}`, recipe);
+    console.log(data);
     state.recipe = createRecipeObject(data);
     addBookmark(state.recipe);
   } catch (err) {
     throw err;
   }
 };
+console.log('bruhh');
